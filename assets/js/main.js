@@ -27,8 +27,48 @@
     })
   }
 
+  // Resume dropdown
+  const resumeBtn = document.querySelector('.nav-resume-btn')
+  const resumeDropdown = document.querySelector('.resume-dropdown')
+  if(resumeBtn && resumeDropdown){
+    resumeBtn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const open = resumeDropdown.classList.toggle('open')
+      resumeBtn.setAttribute('aria-expanded', String(open))
+    })
+    document.addEventListener('click', () => {
+      resumeDropdown.classList.remove('open')
+      resumeBtn.setAttribute('aria-expanded', 'false')
+    })
+    resumeDropdown.addEventListener('click', e => e.stopPropagation())
+  }
+
   const yearEl = document.getElementById('year')
   if(yearEl){ yearEl.textContent = new Date().getFullYear() }
+
+  // Animated metric counters
+  const counters = document.querySelectorAll('.metric-value[data-target]')
+  if(counters.length){
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target, 10)
+      const duration = 1000
+      const start = performance.now()
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        el.textContent = Math.floor(eased * target)
+        if(progress < 1) requestAnimationFrame(tick)
+        else el.textContent = target
+      }
+      requestAnimationFrame(tick)
+    }
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ animateCounter(e.target); cio.unobserve(e.target) }
+      })
+    }, { threshold: 0.5 })
+    counters.forEach(el => cio.observe(el))
+  }
 
   const revealEls = document.querySelectorAll('.reveal')
   if(revealEls.length){
@@ -121,36 +161,32 @@
       }
     ]
     
+    const renderCard = (p) => {
+      const thumb = p.images && p.images.length
+        ? `<img class="project-thumb" src="${p.images[0]}" alt="${p.name}" loading="lazy">`
+        : `<div class="project-thumb-placeholder">${p.organization || 'Project'}</div>`
+      const chips = p.stack.slice(0, 4).map(s => `<span class="tag">${s}</span>`).join('')
+      return `<article class="project-card reveal">
+        ${thumb}
+        ${p.organization ? `<span class="project-organization">${p.organization}</span>` : ''}
+        <h3>${p.name}</h3>
+        <div class="meta">${chips}</div>
+        <div class="project-date"><span class="muted">${p.dateRange || ''}</span></div>
+        <div class="card-actions">
+          ${p.repo ? `<a class="btn btn-outline" href="${p.repo}" target="_blank" rel="noopener">Repo</a>` : ''}
+          ${p.demo ? `<a class="btn btn-primary" href="${p.demo}" target="_blank" rel="noopener">Live</a>` : ''}
+        </div>
+      </article>`
+    }
+
     fetch('./assets/data/projects.json').then(r=>{
       if(!r.ok) throw new Error(`HTTP ${r.status}`)
       return r.json()
     }).then(items=>{
-      const top = items.slice(0,3)
-      recent.innerHTML = top.map(p=>`<article class="project-card reveal">
-        <h3>${p.name}</h3>
-        ${p.organization ? `<h4 class="project-organization">${p.organization}</h4>` : ''}
-        <p>${p.description}</p>
-        <div class="meta"><span>★ ${p.stars}</span><span>${p.stack.join(', ')}</span></div>
-        <div class="project-date"><span class="muted">${p.dateRange || 'Date TBD'}</span></div>
-        <div class="card-actions">
-          ${p.repo ? `<a class="btn btn-outline" href="${p.repo}" target="_blank" rel="noopener">Repo</a>` : ''}
-          ${p.demo ? `<a class="btn btn-primary" href="${p.demo}" target="_blank" rel="noopener">Live</a>` : ''}
-        </div>
-      </article>`).join('')
+      recent.innerHTML = items.slice(0,3).map(renderCard).join('')
     }).catch(err=>{
       console.error('Failed to load recent projects from JSON, using fallback:', err)
-      const top = fallbackProjects.slice(0,3)
-      recent.innerHTML = top.map(p=>`<article class="project-card reveal">
-        <h3>${p.name}</h3>
-        ${p.organization ? `<h4 class="project-organization">${p.organization}</h4>` : ''}
-        <p>${p.description}</p>
-        <div class="meta"><span>★ ${p.stars}</span><span>${p.stack.join(', ')}</span></div>
-        <div class="project-date"><span class="muted">${p.dateRange || 'Date TBD'}</span></div>
-        <div class="card-actions">
-          ${p.repo ? `<a class="btn btn-outline" href="${p.repo}" target="_blank" rel="noopener">Repo</a>` : ''}
-          ${p.demo ? `<a class="btn btn-primary" href="${p.demo}" target="_blank" rel="noopener">Live</a>` : ''}
-        </div>
-      </article>`).join('')
+      recent.innerHTML = fallbackProjects.slice(0,3).map(renderCard).join('')
     })
   }
 })();

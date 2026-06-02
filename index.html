@@ -3,14 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yash Patel • Technical Portfolio</title>
-  <meta name="description" content="Technical portfolio of Yash Patel: projects, experience, and contact.">
+  <title>Yash Patel • Mechatronics Engineer</title>
+  <meta name="description" content="Yash Patel — Mechatronics Engineering student at UWaterloo specializing in robotics, autonomy, and mechanical design. 6 internships, 2 competition wins.">
   <meta name="theme-color" content="#0f172a">
-  <meta property="og:title" content="Yash Patel • Technical Portfolio">
-  <meta property="og:description" content="Projects, experience, and contact.">
+  <meta property="og:title" content="Yash Patel • Mechatronics Engineer">
+  <meta property="og:description" content="Robotics · Autonomy · UWaterloo. 6 internships, open to full-time roles.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/">
-  <meta property="og:image" content="/assets/images/og.png">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +28,14 @@
           <li><a class="nav-link active" href="./index.html">Home</a></li>
           <li><a class="nav-link" href="./projects.html">Projects</a></li>
           <li><a class="nav-link" href="./about.html">About</a></li>
+          <li class="resume-nav-item">
+            <button class="nav-link nav-resume-btn" aria-expanded="false" aria-haspopup="true">Resume ↓</button>
+            <ul class="resume-dropdown" role="menu">
+              <li><a href="./assets/resume_robotics.pdf" target="_blank" rel="noopener" role="menuitem">Robotics &amp; Autonomy</a></li>
+              <li><a href="./assets/resume_mechanical.pdf" target="_blank" rel="noopener" role="menuitem">Mechanical</a></li>
+              <li><a href="./assets/resume_joint.pdf" target="_blank" rel="noopener" role="menuitem">Joint</a></li>
+            </ul>
+          </li>
           <li>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
               <span class="sun" aria-hidden="true">☀</span>
@@ -45,59 +51,193 @@
     <section class="hero">
       <div class="container grid-2">
         <div class="hero-copy">
-          <h1 class="hero-title">Hello!</h1>
-          <p class="hero-subtitle">I'm Yash Patel, a 4th‑year Mechatronics Engineering student at the University of Waterloo. I build across robotics (ROS2, C++/Python), full‑stack web (React/JS), and mechanical design (SolidWorks/AutoCAD), with a focus on practical impact and reliability.</p>
+          <span class="overline">Mechatronics Engineer</span>
+          <h1 class="hero-title">Yash Patel</h1>
+          <p class="hero-subtitle">Robotics &amp; Autonomy · University of Waterloo<br>Building systems that perceive, decide, and move.</p>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Open to full-time roles
+          </div>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="/projects.html">Explore Projects</a>
-            <a class="btn btn-outline" href="/about.html">About Me</a>
+            <a class="btn btn-primary" href="./projects.html">View Projects</a>
+            <a class="btn btn-outline" href="./assets/resume_joint.pdf" target="_blank" rel="noopener">Resume ↓</a>
           </div>
         </div>
         <div class="hero-visual">
-          <div class="card code-card" aria-hidden="true">
-            <div class="code-header">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
+          <div class="metrics-card">
+            <div class="metric">
+              <div class="metric-value" data-target="6">6</div>
+              <div class="metric-label">Internships</div>
             </div>
-            <pre class="code"><code>const localize = (robot) =&gt; {
-  const sensorFusion = fuseIMU(UWB())
-  return estimatePose(sensorFusion)
-}
-
-const plan = (goal) =&gt; pathPlan(goal, { accuracy: 0.98 })
-
-launch(["gui-ros2","web-dashboard"]) // systems that move
-</code></pre>
+            <div class="metric">
+              <div class="metric-value" data-target="2">2</div>
+              <div class="metric-label">Competition Wins</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value" data-target="3">3</div>
+              <div class="metric-label">Disciplines</div>
+            </div>
+          </div>
+          <div class="photo-card">
+            <img src="./assets/images/navaward.jpg" alt="Yash Patel and WatDig team receiving 1st place at the 2024 Not-A-Boring Competition">
+            <div class="photo-caption">WatDig — 1st Place, NABC 2024 · Austin, TX</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section highlights">
+    <div class="container">
+      <div class="circuit-divider" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <section class="section experience-section">
       <div class="container">
-        <h2 class="section-title">Skills Highlights</h2>
-        <div class="cards">
-          <article class="tile reveal">
-            <h3>Robotics</h3>
-            <p>ROS2, C++/Python, real‑time telemetry GUIs, localization, and autonomy tooling.</p>
-          </article>
-          <article class="tile reveal">
-            <h3>Product & Web</h3>
-            <p>Human‑centered UIs with React/JS, performance‑minded and accessible.</p>
-          </article>
-          <article class="tile reveal">
-            <h3>Design & Manufacturing</h3>
-            <p>SolidWorks/AutoCAD, fixtures, and drawings that improve efficiency on the floor.</p>
-          </article>
+        <div class="section-top-row">
+          <div>
+            <span class="overline">Experience</span>
+            <h2 class="section-title">6 Co-ops &amp; Internships</h2>
+          </div>
+          <a class="link" href="./about.html">Full timeline →</a>
+        </div>
+        <div class="exp-strip-wrap">
+          <div class="exp-track">
+            <div class="exp-entry">
+              <div class="exp-above">
+                <span class="exp-company">Northland Power</span>
+                <span class="exp-dates">Jul – Aug 2022</span>
+              </div>
+              <div class="exp-dot"></div>
+              <div class="exp-below">
+                <span class="exp-role">Maint. SW Intern</span>
+              </div>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-above">
+                <span class="exp-company">Welbilt</span>
+                <span class="exp-dates">Jan – Apr 2023</span>
+              </div>
+              <div class="exp-dot"></div>
+              <div class="exp-below">
+                <span class="exp-role">Mfg. Eng. Intern</span>
+              </div>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-above">
+                <span class="exp-company">Linamar</span>
+                <span class="exp-dates">Sep – Dec 2023</span>
+              </div>
+              <div class="exp-dot"></div>
+              <div class="exp-below">
+                <span class="exp-role">Data Analyst Intern</span>
+              </div>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-above">
+                <span class="exp-company">WATOnomous</span>
+                <span class="exp-dates">Jan – Nov 2024</span>
+              </div>
+              <div class="exp-dot"></div>
+              <div class="exp-below">
+                <span class="exp-role">Vehicle Platform</span>
+              </div>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-above">
+                <span class="exp-company">Sable Metal</span>
+                <span class="exp-dates">Jan – Apr 2025</span>
+              </div>
+              <div class="exp-dot"></div>
+              <div class="exp-below">
+                <span class="exp-role">Robotics Systems Eng.</span>
+              </div>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-above">
+                <span class="exp-company">Daylun Housing</span>
+                <span class="exp-dates">Sep – Dec 2025</span>
+              </div>
+              <div class="exp-dot"></div>
+              <div class="exp-below">
+                <span class="exp-role">Robotics SWE Intern</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <div class="container">
+      <div class="circuit-divider" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <section class="section disciplines-section">
+      <div class="container">
+        <span class="overline">Disciplines</span>
+        <h2 class="section-title">What I Build</h2>
+        <div class="disciplines">
+          <div class="discipline-card robotics">
+            <h3 class="discipline-title">Robotics &amp; Autonomy</h3>
+            <ul class="discipline-tools">
+              <li>ROS2</li>
+              <li>C++</li>
+              <li>Python</li>
+              <li>SLAM</li>
+              <li>Path Planning</li>
+              <li>Sensor Fusion</li>
+              <li>UWB</li>
+              <li>MoveIt</li>
+              <li>Gazebo</li>
+              <li>IsaacSim</li>
+            </ul>
+          </div>
+          <div class="discipline-card mechanical">
+            <h3 class="discipline-title">Mechanical Design</h3>
+            <ul class="discipline-tools">
+              <li>SolidWorks</li>
+              <li>AutoCAD</li>
+              <li>Onshape</li>
+              <li>Sheet Metal</li>
+              <li>GD&amp;T</li>
+              <li>DFMA</li>
+              <li>FEA</li>
+              <li>Machining</li>
+              <li>3D Printing</li>
+            </ul>
+          </div>
+          <div class="discipline-card web">
+            <h3 class="discipline-title">Web &amp; Software</h3>
+            <ul class="discipline-tools">
+              <li>React</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>Docker</li>
+              <li>Git</li>
+              <li>Linux</li>
+              <li>STM32</li>
+              <li>CAN Bus</li>
+              <li>Excel VBA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="circuit-divider" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
     <section class="section recent-projects">
       <div class="container">
-        <h2 class="section-title">Recent Projects</h2>
-        <div class="section-header">
-          <a class="link" href="./projects.html">View all</a>
+        <span class="overline">Selected Work</span>
+        <div class="section-top-row">
+          <h2 class="section-title">Recent Projects</h2>
+          <a class="link" href="./projects.html">View all →</a>
         </div>
         <div id="recent-projects" class="project-grid"></div>
       </div>
@@ -115,12 +255,17 @@ launch(["gui-ros2","web-dashboard"]) // systems that move
         </a>
         <a href="https://www.linkedin.com/in/yash-patel-33276b218/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.771v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
         </a>
         <a href="mailto:yashpatel1314@outlook.com" aria-label="Email">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+        <a href="./assets/resume_joint.pdf" target="_blank" rel="noopener" aria-label="Resume (Joint)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
           </svg>
         </a>
       </div>
