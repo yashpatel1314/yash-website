@@ -77,9 +77,21 @@
               <div class="metric-label">Disciplines</div>
             </div>
           </div>
-          <div class="photo-card">
-            <img src="./assets/images/roveroutside.jpg" alt="WatDig autonomous navigation robot, 1st place NABC 2024">
-            <div class="photo-caption">WatDig — 1st Place, NABC 2024 · Austin, TX</div>
+          <div class="card code-card" aria-hidden="true">
+            <div class="code-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <pre class="code"><code>const localize = (robot) =&gt; {
+  const sensorFusion = fuseIMU(UWB())
+  return estimatePose(sensorFusion)
+}
+
+const plan = (goal) =&gt; pathPlan(goal, { accuracy: 0.98 })
+
+launch(["gui-ros2","web-dashboard"]) // systems that move
+</code></pre>
           </div>
         </div>
       </div>
