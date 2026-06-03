@@ -1,5 +1,20 @@
 [
   {
+    "id": 13,
+    "name": "Autonomous Vehicle Simulation",
+    "organization": "Personal",
+    "outcome": "A* planning · Stanley control · PPO RL avoidance · 93 tests",
+    "description": "ROS2 Humble simulation of a differential-drive robot autonomously navigating ordered checkpoints on a 30×30 m grid while detecting and avoiding static and moving obstacles in real time.",
+    "longDescription": "• Implemented 4-tier A* path planner with 8-directional search, obstacle inflation fallback, and waypoint pruning for smooth navigation around static and moving obstacles.\n• Built a Stanley controller minimising heading error and cross-track error simultaneously for precise path following.\n• Integrated a PPO reinforcement learning avoidance policy (trained offline via Stable-Baselines3) as a local correction layer over the Stanley command, with reactive sector-based fallback when no model is loaded.\n• Engineered dynamic replanning triggered whenever a moving obstacle crosses the planned path (throttled to once per 3 s) and reactive replanning on lidar-detected static obstacles or checkpoint events.\n• Implemented stuck recovery: after 6 s without movement the robot reverses with a randomised turn for 2 s then replans.\n• Simulated 8 random-walking blue cylinder obstacles via Gazebo ROS planar move plugin and 360° CPU lidar at 10 Hz.\n• Containerised with Docker Compose — headless and GUI modes run on Windows (WSLg), macOS (XQuartz), and Linux without a local ROS2 install.\n• 93 pytest unit tests across A* algorithm, Stanley math, coordinate transforms, and planning utilities — all pure Python, no ROS2 runtime required.",
+    "tags": ["ros2","python","gazebo","docker","path-planning","reinforcement-learning","robotics","navigation","automation"],
+    "stack": ["ROS2","Python","Gazebo","Docker"],
+    "repo": "https://github.com/yashpatel1314/autonomous_vehicle",
+    "demo": null,
+    "images": [],
+    "added": "2026-06-01",
+    "dateRange": "Jun 2026"
+  },
+  {
     "id": 9,
     "name": "Sheet Metal Part Bending Project",
     "organization": "Sable Metal Manufacturing",
