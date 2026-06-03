@@ -1,30 +1,28 @@
-# Yash Patel • Technical Portfolio
+# Yash Patel — Portfolio
 
-Static site with Home, Projects, and About pages. Includes dark/light theme, responsive layout, dynamic projects with filters/search/sort, and accessible modal.
+Personal portfolio for Yash Patel, 4th-year Mechatronics Engineering student at the University of Waterloo. Built to target full-time roles in robotics and autonomy.
 
-## Run locally
+## What it covers
 
-Use any static server. Examples:
+**Home** — Hero with animated metrics (6 internships, 2 competition wins, 3 disciplines), open-to-work badge, experience timeline of all 6 co-ops, discipline-grouped skills, and recent projects.
 
-- VS Code Live Server
-- Python: `python -m http.server 5173`
-- Node: `npx serve . -l 5173`
+**Projects** — 12 projects across robotics, mechanical design, and software. Cards show a one-line outcome, stack tags, and date. Filterable by discipline (Robotics / Mechanical / Software). Each card opens a modal with full bullet-point breakdown and image carousel where available.
 
-Then open `http://localhost:5173`.
+**About** — Profile, full experience timeline, skills breakdown, and education.
 
-## Structure
+## Stack
 
-- `index.html` – Home
-- `projects.html` – Projects (dynamic)
-- `about.html` – About
-- `assets/css/style.css` – Global styles
-- `assets/js/main.js` – Navigation, theme, utilities
-- `assets/js/projects.js` – Projects filtering/search/sort + modal
-- `assets/data/projects.json` – Project data
+Plain HTML, CSS, and JavaScript — no build step, no framework. Dark/light theme toggle, responsive layout, accessible modal with focus trap and keyboard navigation.
 
-## Customize
+## Files
 
-- Update `assets/data/projects.json` with your projects
-- Replace `favicon.svg` and social links in footers
-- Optionally add an OpenGraph image at `assets/images/og.png`
-
+- `index.html` — Home
+- `projects.html` — Projects with discipline filters and modal
+- `about.html` — About / experience / skills
+- `assets/css/style.css` — All styles
+- `assets/js/main.js` — Theme, nav, metric counters, home project cards
+- `assets/js/projects.js` — Projects filter, search, card render, modal, carousel
+- `assets/data/projects.json` — Project data (add `outcome`, `stack`, `tags`, `images`, `longDescription`)
+- `assets/resume_robotics.pdf` — Robotics & Autonomy resume
+- `assets/resume_mechanical.pdf` — Mechanical resume
+- `assets/resume_joint.pdf` — Joint resume
