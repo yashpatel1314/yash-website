@@ -161,25 +161,38 @@
       }
     ]
     
+    const DISC_TAGS = {
+      robotics:   ['robotics','ros2','slam','uwb','navigation','tbm','vfd','automation','competition','ev3','robotc','award-winning','path-planning','reinforcement-learning'],
+      mechanical: ['solidworks','sheet-metal','mechanical-design','manufacturing','inventor','safety','3d-printing','onshape']
+    }
+    const getDisc = (p) => {
+      const t = p.tags || []
+      if(t.some(x => DISC_TAGS.robotics.includes(x)))   return 'robotics'
+      if(t.some(x => DISC_TAGS.mechanical.includes(x))) return 'mechanical'
+      return 'software'
+    }
+
     const renderCard = (p) => {
-      const thumb = p.images && p.images.length
-        ? `<img class="project-thumb" src="${p.images[0]}" alt="${p.name}" loading="lazy">`
-        : `<div class="project-thumb-placeholder">${p.organization || 'Project'}</div>`
+      const disc = getDisc(p)
+      const outcome = p.outcome || p.description.split('.')[0]
       const chips = p.stack.slice(0, 4).map(s => `<span class="tag">${s}</span>`).join('')
-      return `<article class="project-card reveal">
-        ${thumb}
-        ${p.organization ? `<span class="project-organization">${p.organization}</span>` : ''}
-        <h3>${p.name}</h3>
+      return `<article class="project-card home-project-card disc-${disc} reveal">
+        <div class="home-card-header">
+          <p class="home-card-outcome">${outcome}</p>
+        </div>
+        ${p.organization ? `<span class="project-org-label">${p.organization}</span>` : ''}
+        <h3 class="project-name">${p.name}</h3>
         <div class="meta">${chips}</div>
-        <div class="project-date"><span class="muted">${p.dateRange || ''}</span></div>
-        <div class="card-actions">
-          ${p.repo ? `<a class="btn btn-outline" href="${p.repo}" target="_blank" rel="noopener">Repo</a>` : ''}
-          ${p.demo ? `<a class="btn btn-primary" href="${p.demo}" target="_blank" rel="noopener">Live</a>` : ''}
+        <div class="card-footer">
+          <span class="muted" style="font-size:13px">${p.dateRange || ''}</span>
+          ${p.repo ? `<a class="btn btn-outline btn-sm" href="${p.repo}" target="_blank" rel="noopener">Repo</a>` : ''}
+          ${p.demo ? `<a class="btn btn-primary btn-sm" href="${p.demo}" target="_blank" rel="noopener">Live</a>` : ''}
         </div>
       </article>`
     }
 
-    fetch('./assets/data/projects.json').then(r=>{
+    fetch('./assets/data/projects.json')
+.then(r=>{
       if(!r.ok) throw new Error(`HTTP ${r.status}`)
       return r.json()
     }).then(items=>{
