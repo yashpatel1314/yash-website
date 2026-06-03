@@ -47,19 +47,17 @@
   <main>
     <section class="section">
       <div class="container">
+        <span class="overline">Selected Work</span>
         <h1 class="page-title">Projects</h1>
         <div class="filters">
           <div class="search">
             <input type="search" id="search" placeholder="Search projects" aria-label="Search projects">
           </div>
-          <div class="chips" id="filters" role="listbox" aria-label="Filter by tag"></div>
-          <div class="sort">
-            <label for="sort">Sort</label>
-            <select id="sort" aria-label="Sort projects">
-              <option value="recent">Most Recent</option>
-              <option value="stars">Most Stars</option>
-              <option value="name">Name A–Z</option>
-            </select>
+          <div class="discipline-filters" id="discipline-filters" role="group" aria-label="Filter by discipline">
+            <button class="disc-btn active" data-discipline="all">All</button>
+            <button class="disc-btn" data-discipline="robotics">Robotics</button>
+            <button class="disc-btn" data-discipline="mechanical">Mechanical</button>
+            <button class="disc-btn" data-discipline="software">Software</button>
           </div>
         </div>
         <div id="project-results" class="project-grid" aria-live="polite"></div>

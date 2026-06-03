@@ -770,6 +770,77 @@ a {
   transform: none;
 }
 
+/* Project card — discipline variants */
+.project-card {
+  border-left: 3px solid var(--border);
+}
+.project-card--robotics  { border-left-color: var(--brand); }
+.project-card--mechanical { border-left-color: var(--brand-2); }
+.project-card--software  { border-left-color: rgba(148,163,184,0.45); }
+
+.project-org-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.project-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+.project-outcome {
+  font-size: 13px;
+  color: var(--brand-2);
+  font-weight: 500;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+}
+.btn-sm {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+/* Discipline filter buttons */
+.discipline-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.disc-btn {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.disc-btn:hover {
+  color: var(--text);
+  border-color: var(--brand);
+}
+.disc-btn.active {
+  background: linear-gradient(45deg, var(--brand), var(--brand-2));
+  color: #0b1020;
+  border-color: transparent;
+  font-weight: 600;
+}
+
 /* ── New components ───────────────────────────────────────── */
 
 /* Hex grid animation */
