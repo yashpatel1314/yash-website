@@ -1,5 +1,20 @@
 [
   {
+    "id": 14,
+    "name": "Multi-Agent RL Environments",
+    "organization": "Personal",
+    "outcome": "DQN Snake + PPO/ICM city builder · 9-agent self-play league · ELO convergence",
+    "description": "Two reinforcement learning environments built from scratch — a DQN-trained Snake agent and a competitive 9-agent city builder using PPO with intrinsic curiosity, self-play league, and ELO rating.",
+    "longDescription": "• Built two Gymnasium-compatible environments entirely from scratch with no pre-built RL frameworks — environments, agents, and training loops hand-written in Python and PyTorch.\n• Snake: 11-feature boolean observation, relative action space (straight/left/right), configurable reward via dataclass, replay buffer with prioritised sampling, soft Polyak target network updates.\n• City builder: 9 agents across two asymmetric teams on a shared 16×16 grid, each placing buildings (Residential, Commercial, Industrial, Power) scored by adjacency synergies and power coverage. Team B's 5th agent is a demolisher that seeks and destroys Team A buildings.\n• Intrinsic Curiosity Module (ICM) generates per-step intrinsic rewards from prediction error in a learned feature space, enabling learning from sparse end-of-episode rewards.\n• Self-play league: every 200 episodes both policy weights are snapshotted, with 20% chance of replacing a team with a frozen past opponent — exposing agents to diverse play styles.\n• 3-stage curriculum (8×8 warmup → 12×12 solo city → 16×16 competition) with PPO weights carrying over between stages.\n• After ~2000 episodes: synergy_ratio = 1.00 observed (agents cluster RES next to COM), power_coverage > 0.90, ELO converging toward parity as demolisher learns its role.",
+    "tags": ["python","pytorch","reinforcement-learning","robotics","gymnasium"],
+    "stack": ["Python","PyTorch","Gymnasium","pygame-ce"],
+    "repo": "https://github.com/yashpatel1314/TeacherGame",
+    "demo": null,
+    "images": [],
+    "added": "2026-06-08",
+    "dateRange": "Jun 2026"
+  },
+  {
     "id": 13,
     "name": "Autonomous Vehicle Simulation",
     "organization": "Personal",
