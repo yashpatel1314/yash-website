@@ -1,5 +1,35 @@
 [
   {
+    "id": 16,
+    "name": "Language-Conditioned Robot Manipulation",
+    "organization": "Personal",
+    "outcome": "Type a command → Franka Panda executes it · LLM planning + VLM perception · MuJoCo",
+    "description": "Tabletop robotic manipulation in MuJoCo simulation: type a natural language command and the system perceives the scene with a VLM, plans a skill sequence with an LLM, and executes it on a Franka Panda arm.",
+    "longDescription": "• Full perception-to-execution pipeline: Llama 4 Scout (Groq) reads an overhead RGB frame and returns object positions; Llama 3.3 70B converts a natural language command into a JSON skill sequence; scripted PD controllers or a trained MLP policy execute each skill.\n• Skill library covers grasp, place_on, place_at, and push — with up to 2 automatic replans on failure and a scripted fallback that works with no trained checkpoint.\n• Supports text and voice input (Whisper STT + VAD), headless benchmark mode, and episode replay from logs.\n• Optional behaviour cloning + SAC RL fine-tuning per skill; checkpoints loaded automatically at startup when present.\n• Pytest smoke and planner unit tests; all hyperparameters and provider settings in a single config.yaml.",
+    "tags": ["python","robotics","reinforcement-learning","llm","mujoco","pytorch"],
+    "stack": ["Python","MuJoCo","Groq API","robosuite"],
+    "repo": "https://github.com/yashpatel1314/CobotManipulation",
+    "demo": null,
+    "images": [],
+    "added": "2026-06-17",
+    "dateRange": "Jun 2026"
+  },
+  {
+    "id": 15,
+    "name": "3D Live Sports",
+    "organization": "Personal",
+    "outcome": "Live NBA play-by-play → real-time 3D court animations · no stream required",
+    "description": "Watch NBA games without a stream — live ESPN play-by-play data rendered as real-time 3D animations in the browser, with shot-type-specific motion, correct arc physics, and a live scoreboard overlay.",
+    "longDescription": "• Parses raw ESPN play descriptions into typed actions (dunk, 3-pointer, layup, fadeaway, hook shot, miss) and positions a 3D player figure at the correct court location.\n• Animates each play with shot-type-specific joint rotations: fadeaway leans back, hook shot sweeps sideways, dunk launches both arms overhead — all keyed to a 0→1 progress value.\n• Ball trajectory uses a CatmullRomCurve3 arc: makes travel cleanly through the basket, misses clip the rim edge and deflect away with red arc-preview dots signalling the outcome before landing.\n• Camera lerps to whichever end of the court the scoring team is attacking; scoreboard and play feed update live alongside the animation.\n• Demo mode simulates a full GSW vs BOS game offline so the animation system is always viewable — no API key or live game required.\n• Built on Next.js 15 App Router, React Three Fiber, Three.js, Framer Motion, and Tailwind CSS with ESPN data proxied through Next.js API routes.",
+    "tags": ["nextjs","react","typescript","three-js","animation"],
+    "stack": ["Next.js","React Three Fiber","Three.js","Tailwind CSS"],
+    "repo": "https://github.com/yashpatel1314/3d_live_sports",
+    "demo": null,
+    "images": [],
+    "added": "2026-06-17",
+    "dateRange": "Jun 2026"
+  },
+  {
     "id": 14,
     "name": "Multi-Agent RL Environments",
     "organization": "Personal",
@@ -11,8 +41,8 @@
     "repo": "https://github.com/yashpatel1314/TeacherGame",
     "demo": null,
     "images": [],
-    "added": "2026-06-08",
-    "dateRange": "Jun 2026"
+    "added": "2026-05-01",
+    "dateRange": "May 2026"
   },
   {
     "id": 13,
@@ -26,8 +56,8 @@
     "repo": "https://github.com/yashpatel1314/autonomous_vehicle",
     "demo": null,
     "images": [],
-    "added": "2026-06-01",
-    "dateRange": "Jun 2026"
+    "added": "2025-10-01",
+    "dateRange": "Oct 2025"
   },
   {
     "id": 9,
